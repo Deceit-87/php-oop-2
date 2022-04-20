@@ -2,6 +2,13 @@
 
 require_once __DIR__. '/prodotto.php';
 require_once __DIR__. '/cart.php';
+require_once __DIR__. '/user.php';
+require_once __DIR__. '/payMethods.php';
+require_once __DIR__. '/registredUser.php';
+
+
+
+
 
 
 
@@ -46,4 +53,12 @@ $cart1->sumTot();
 $cart1->countProdotti();
 
 var_dump($cart1);
+
+// $guest = new User('luca','rodolfi','gogog@gmail.com');
+$guest = new registredUser('luca','rodolfi','gogog@gmail.com','pluto');
+
+$card = new PayMethods('345545679867','luca rodolfi','087','02/2024');
+
+$guest->addPayment( $card );
+var_dump($guest);
 
