@@ -17,7 +17,7 @@ $prodotto1 = new Prodotto (
     'Gatti',
     'Monge Sterilised ricco di Pollo',
     'Monge',
-    'Crocchette per gatti adulti sterilizzati Monge Sterilised ricco di Pollo, alimento completo a basso contenuto di grassi per la perfetta forma fisica del tuo amico quattro zampe.',
+    'Crocchette per ',
     3.99
 );
 $prodotto2 = new Prodotto (
@@ -25,7 +25,7 @@ $prodotto2 = new Prodotto (
     'Cani',
     'Maglione Passion San Valentino Rosso ',
     'Lovedi',
-    'Lovedì Maglione Passion San Valentino color Rosso, creato per avvolgere e proteggere il tuo cane durante le giornate più fredde dell\'anno. Il prodotto è stato realizzato in lana merinos e si adatta perfettamente al corpo del tuo cane. Passion San Valentino color Rosso è disponibile nelle taglie: 24, 27, 30, 33, 36, 39, 43, 47, 51, 55, 60. Per selezionare quella corretta misura la lunghezza del dorso del tuo cane, troverai così la taglia da comprare. Prodotto realizzato in Italia.',
+    'Lovedì Maglione.',
     23.10
 );
 
@@ -48,11 +48,17 @@ $cart1 = new Cart(
 
 
 $cart1->addProdotti($prodotto1,1);
-$cart1->addProdotti($prodotto2,2);
+$cart1->addProdotti($prodotto2,5);
 $cart1->sumTot();
-$cart1->countProdotti();
 
+$cart1->countProdotti();
 var_dump($cart1);
+echo "<h2>QUANTITà PRODOTTI <h2/>";
+echo $cart1->countProdotti;
+echo "<h2>TOTOALE PRODOTTI <h2/>";
+echo $cart1->tot . ' €';
+
+
 
 // $guest = new User('luca','rodolfi','gogog@gmail.com');
 $guest = new registredUser('luca','rodolfi','gogog@gmail.com','pluto');
@@ -60,5 +66,5 @@ $guest = new registredUser('luca','rodolfi','gogog@gmail.com','pluto');
 $card = new PayMethods('345545679867','luca rodolfi','087','02/2024');
 
 $guest->addPayment( $card );
-var_dump($guest);
+// var_dump($guest);
 

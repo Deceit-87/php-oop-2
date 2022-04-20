@@ -11,25 +11,35 @@ class Cart
 
   public function addProdotti($prodotto, $quantità = 1)
   {
-    // $this->prodotti[] = [
-    //   'prodotto' => $prodotto,
-    //   'quntità' => $quantità,
-    // ];
-    $this->prodotti[] = $prodotto;
+    $this->prodotti[] = [
+      'prodotto' => $prodotto,
+      'quantità' => $quantità,
+    ];
+    // $this->prodotti[] = $prodotto;
   }
+
+ 
+  
 
   public function sumTot()
   {
-    foreach ($this->prodotti as $value) {
-      $this->tot += $value->prezzo;
+ 
+    foreach($this->prodotti as $prod){
+      // $this->tot += $el->prezzo;
+      $this->tot += $prod['prodotto']->prezzo*$prod['quantità'];
     }
+    
     if ($this->tot > 15) {
       $this->costoSpedizione = 0;
     }
+
+
   }
 
   public function countProdotti()
-  {
-    return $this->countProdotti =  count($this->prodotti);
+  {foreach($this->prodotti as $prod){
+    
+    $this->countProdotti += $prod['quantità'];
+  }
   }
 }
